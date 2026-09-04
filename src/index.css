@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+
+  --color-bg: #081018;
+  --color-bg-dark: #05080d;
+  --color-text: #ecf7f5;
+  --color-text-muted: #91a5aa;
+  --color-text-inverse: #ecf7f5;
+  --color-text-inverse-muted: #91a5aa;
+  --color-border: rgba(184, 239, 229, 0.14);
+  --color-border-inverse: rgba(184, 239, 229, 0.18);
+
+  --section-space: clamp(3.5rem, 6vw, 6rem);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.section-space {
+  padding-block: var(--section-space);
+  /* Matches the fixed header's real height (64px mobile / 76px desktop), a
+     couple px under rather than over, so the header itself fully covers this
+     reserved space instead of leaving any strip of the previous section
+     exposed above the anchored one. */
+  scroll-margin-top: 62px;
+}
+
+@media (min-width: 640px) {
+  .section-space {
+    scroll-margin-top: 74px;
+  }
+}
+
+.about-capabilities {
+  width: min(1100px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.about-divider {
+  width: min(340px, calc(100% - 32px));
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+}
+
+.about-divider__line {
+  display: block;
+  flex: 1 1 0;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.about-divider__diamond {
+  display: block;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--color-text);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.skills-section {
+  width: min(1040px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+.site-header {
+  /* Single source of truth for the header's glass formula, reused as-is by
+     the mobile dropdown menu (.mobile-menu-glass) so both surfaces always
+     share the exact same background/border/blur. */
+  --header-glass-bg: rgba(255, 255, 255, 0.045);
+  --header-glass-border: rgba(255, 255, 255, 0.05);
+  --header-glass-blur: 13px;
+
+  position: fixed;
+  inset-inline: 0;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  background-color: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  box-shadow: none;
+  transition: background-color 280ms ease, backdrop-filter 280ms ease, border-color 280ms ease;
+}
+
+.site-header[data-scrolled="true"] {
+  border-bottom-color: var(--header-glass-border);
+  background-color: var(--header-glass-bg);
+  backdrop-filter: blur(var(--header-glass-blur));
+  -webkit-backdrop-filter: blur(var(--header-glass-blur));
+}
+
+.mobile-menu-glass {
+  background-color: #081018;
+  border-color: rgba(184, 239, 229, 0.14);
+}
+
+/* Browsers without backdrop-filter can't let the hero show through, so fall
+   back to an opaque bar that still respects the sampled light/dark theme —
+   but only once scrolled, matching the transparent-at-top behavior. */
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .site-header[data-scrolled="true"] {
+    background-color: rgba(10, 10, 10, 0.9);
+  }
+
+  .site-header[data-theme="light"][data-scrolled="true"] {
+    background-color: rgba(243, 242, 238, 0.94);
+  }
+}
+
+body {
+  background: #081018;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: #b8efe5;
+  color: #081018;
+}
+
+main > section {
+  position: relative;
+  isolation: isolate;
+}
+
+main > section:not(#top):not(#contact)::before {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-image: linear-gradient(rgba(184, 239, 229, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(184, 239, 229, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+  content: "";
+  mask-image: linear-gradient(to bottom, transparent, black 18%, black 82%, transparent);
+  pointer-events: none;
+}
+
+.site-header[data-scrolled="true"] {
+  --header-glass-bg: rgba(5, 8, 13, 0.72);
+  --header-glass-border: rgba(184, 239, 229, 0.14);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.about-divider__line {
+  background: var(--color-border);
+}
+
+.about-divider__diamond {
+  border-color: #ffb86b;
+}
+
+.skills-section,
+.about-capabilities {
+  position: relative;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+@media (min-width: 768px) {
+  .diagonal-clip {
+    clip-path: polygon(9% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
+
+@media (min-width: 1024px) {
+  .diagonal-clip {
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+  }
+}
