@@ -1,16 +1,63 @@
-# React + Vite
+# Wethum Lansakara Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Personal portfolio website for Wethum Lansakara, an AI Engineer and Machine Learning Developer. The site showcases projects, technical skills, education, experience, certifications, and contact links.
 
-Currently, two official plugins are available:
+## Live Website
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+[wethumlansakara.github.io/Portfolio-V2](https://wethumlansakara.github.io/Portfolio-V2/)
 
-## React Compiler
+- React
+- Vite
+- Tailwind CSS
+- Framer Motion
+- Devicon and Simple Icons
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Run Locally
 
-## Expanding the Oxlint configuration
+Requirements:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+- Node.js 22 or later
+- npm
+
+Install dependencies and start the development server:
+
+```bash
+npm install
+npm run dev
+```
+
+The development site will be available at the local URL shown in the terminal.
+
+## Available Scripts
+
+```bash
+npm run dev      # Start the development server
+npm run build    # Create a production build
+npm run preview  # Preview the production build locally
+npm run lint     # Run Oxlint
+```
+
+## Project Structure
+
+```text
+src/
+	components/    Reusable portfolio sections and modals
+	data/          Portfolio content and skill configuration
+	assets/        Imported profile, education, and certification assets
+public/
+	images/        Project and certificate images
+```
+
+## Deployment
+
+The project deploys automatically to GitHub Pages through GitHub Actions whenever changes are pushed to the `main` branch.
+
+The workflow is located at `.github/workflows/deploy.yml`. It builds the Vite app with the repository base path and publishes the `dist` directory.
+
+For a new repository, set **Settings -> Pages -> Build and deployment -> Source** to **GitHub Actions**.
+
+## Updating Portfolio Content
+
+Most text, project details, links, and certificate entries can be updated in `src/data/portfolio.js`. Component layout and styling are located in `src/components/` and `src/index.css`.
+
+
