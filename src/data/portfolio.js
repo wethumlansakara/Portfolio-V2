@@ -4,6 +4,8 @@ import hpLifeLogo from "../assets/certifications/hp-life.png";
 import moratuwaLogo from "../assets/certifications/moratuwa.png";
 import udemyLogo from "../assets/certifications/udemy.png";
 
+const publicAsset = (path) => `${import.meta.env.BASE_URL}${path}`;
+
 export const profile = {
   name: "Wethum Lansakara",
   title: "AI Engineer & Machine Learning Developer",
@@ -12,7 +14,7 @@ export const profile = {
   email: "wethumlansakara2007@gmail.com",
   github: "https://github.com/wethumlansakara",
   linkedin: "https://www.linkedin.com/in/wethum-lansakara",
-  resumeUrl: "/Wethum_Lansakara_CV.pdf",
+  resumeUrl: publicAsset("Wethum_Lansakara_CV.pdf"),
 };
 
 export const about = {
@@ -97,7 +99,7 @@ export const projects = [
       "Semantic search via PostgreSQL + pgvector embeddings",
       "JWT-authenticated accounts with an admin panel",
     ],
-    image: "/images/projects/studypilot-ai.png",
+    image: publicAsset("images/projects/studypilot-ai.png"),
     github: "https://github.com/wethumlansakara/StudyPilot-AI",
     badge: "RAG + Semantic Search",
   },
@@ -116,7 +118,7 @@ export const projects = [
       "ESP32 bridges Arduino UNO sensor data to Firebase Realtime Database",
       "React + Vite web dashboard for live monitoring and manual override",
     ],
-    image: "/images/projects/autonomous-scarecrow-robot.png",
+    image: publicAsset("images/projects/autonomous-scarecrow-robot.png"),
     github: "https://github.com/wethumlansakara/Autonomous-Scarecrow-Robot",
     badge: "Autonomous IoT",
   },
@@ -140,7 +142,7 @@ export const projects = [
       "Held-out silhouette score: 0.28",
       "First 5 principal components retain ~80% cumulative explained variance",
     ],
-    image: "/images/projects/strategic-customer-segmentation.png",
+    image: publicAsset("images/projects/strategic-customer-segmentation.png"),
     github: "https://github.com/wethumlansakara/Strategic-Customer-Segmentation",
     badge: "4 Customer Segments",
   },
@@ -164,7 +166,7 @@ export const projects = [
       "RMSE: 36.73mm",
       "Dataset: 55,318 records",
     ],
-    image: "/images/projects/sri-lankan-rainfall-prediction.png",
+    image: publicAsset("images/projects/sri-lankan-rainfall-prediction.png"),
     github: "https://github.com/wethumlansakara/Sri-Lanka-Rainfall-Analysis",
     badge: "R² 0.625",
   },
@@ -186,7 +188,7 @@ export const projects = [
       "Compared KNN, Logistic Regression, SVM, Decision Tree, and Naive Bayes",
       "Evaluated on 1,976 phones across 20 hardware specifications",
     ],
-    image: "/images/projects/mobile-price-classification.png",
+    image: publicAsset("images/projects/mobile-price-classification.png"),
     github: "https://github.com/wethumlansakara/Mobile-Price-Range-Classification",
     badge: "96.07% Accuracy",
   },
@@ -204,7 +206,7 @@ export const projects = [
       "User accounts with hashed-password authentication",
       "Automated exam-reminder emails for upcoming exams",
     ],
-    image: "/images/projects/smart-study-planner.png",
+    image: publicAsset("images/projects/smart-study-planner.png"),
     github: "https://github.com/wethumlansakara/smart-study-planner",
     badge: "Prolog Reasoning",
   },
@@ -222,7 +224,7 @@ export const projects = [
       "User and admin workflows",
       "JWT authentication",
     ],
-    image: "/images/projects/ciaoeventi.png",
+    image: publicAsset("images/projects/ciaoeventi.png"),
     github: "https://github.com/wethumlansakara/Ciaoeventi",
     liveDemo: "https://ciaoeventi.com/index.php",
     badge: "Full-Stack",
@@ -306,14 +308,14 @@ export const certifications = [
     name: "Critical Thinking in the AI Era",
     org: "HP LIFE",
     logo: hpLifeLogo,
-    certificateImage: "/images/certificates/critical-thinking-ai-era.png",
+    certificateImage: publicAsset("images/certificates/critical-thinking-ai-era.png"),
     date: "May 24, 2026",
   },
   {
     name: "Python for Beginners",
     org: "University of Moratuwa",
     logo: moratuwaLogo,
-    certificateImage: "/images/certificates/python-for-beginners.png",
+    certificateImage: publicAsset("images/certificates/python-for-beginners.png"),
     credentialUrl: "https://open.uom.lk/verify",
     credentialCode: "edre391lWv",
     date: "April 1, 2025",
@@ -322,21 +324,21 @@ export const certifications = [
     name: "Python Programming",
     org: "Udemy",
     logo: udemyLogo,
-    certificateImage: "/images/certificates/python-programming.png",
+    certificateImage: publicAsset("images/certificates/python-programming.png"),
     credentialUrl: "https://ude.my/UC-9434032b-0fd1-459d-b933-ebdee2538386",
   },
   {
     name: "Java Mastery: Beginner's Guide and Full-Stack AI Projects",
     org: "Udemy",
     logo: udemyLogo,
-    certificateImage: "/images/certificates/java-mastery.png",
+    certificateImage: publicAsset("images/certificates/java-mastery.png"),
     credentialUrl: "https://ude.my/UC-55180476-9c6a-41a2-8dd5-3aa12e8b4e4b",
   },
   {
     name: "Web Hacking for Beginners",
     org: "Udemy",
     logo: udemyLogo,
-    certificateImage: "/images/certificates/web-hacking-for-beginners.png",
+    certificateImage: publicAsset("images/certificates/web-hacking-for-beginners.png"),
     credentialUrl: "https://ude.my/UC-65933744-58d3-4222-ab1b-5a2098e61b6e",
   },
 ];
